@@ -27,7 +27,9 @@ jobs:
       run: flake8 app
 
     - name: Test
-      run: pytest
+      run: |
+        export PYTHONPATH=$PYTHONPATH:.
+        pytest
 
   cd:
     if: startsWith(github.ref, 'refs/tags/')
